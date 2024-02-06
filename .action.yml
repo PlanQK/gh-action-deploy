@@ -1,0 +1,16 @@
+# action.yml
+name: 'Update PlanQK Service'
+description: 'Update the PlanQK service maintained in a github repository'
+inputs:
+  PLANQK_TOKEN:  # id of input
+    description: 'PlanQK token to be used to connect to the PlanQK platform'
+    required: true
+  CONTEXT_ID:
+    description: 'Id of the context to be used'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.PLANQK_TOKEN }}
+    - ${{ inputs.CONTEXT_ID }}
