@@ -1,6 +1,9 @@
 # action.yml
 name: 'Update PlanQK Service'
 description: 'Update the PlanQK service maintained in a github repository'
+branding:
+  icon: 'upload-cloud'
+  color: 'red'
 inputs:
   PLANQK_TOKEN:  # id of input
     description: 'PlanQK token to be used to connect to the PlanQK platform'
