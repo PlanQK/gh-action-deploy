@@ -1,3 +1,3 @@
-# update-service-action
+# PlanQK GitHub Action Deploy 
 
 GitHub Action to update a PlanQK service. 
