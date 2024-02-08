@@ -1,0 +1,22 @@
+name: Update tags
+
+on:
+  release:
+    types: [ published, edited ]
+
+jobs:
+  update-tags:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Update tags
+        run: |
+            echo $GITHUB_REF
+            echo $GITHUB_REF_NAME
+            # check if the github ref name is a valid semantic version and if so strip out the major version an push a tag with the major version
+            if [[ $GITHUB_REF =~ ^refs/tags/v([0-9]+)\.([0-9]+)\.([0-9]+)$ ]]; then
+              major_version=${BASH_REMATCH[1]}
+              git tag -f v$major_version $GITHUB_REF_NAME
+              git push -f origin --tags
+            fi
