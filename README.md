@@ -22,18 +22,9 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
 
-      - shell: bash
-        env:
-          CONTEXT_ID: ${{ vars.CONTEXT_ID }}
-          PLANQK_TOKEN: ${{ secrets.PLANQK_TOKEN }}
-        run: |
-          echo "Output:"
-          echo $CONTEXT_ID
-          echo $PLANQK_TOKEN
-
       # Updates your service on PanQK
       - uses: PlanQK/update-service-action@v1
         with:
           PLANQK_TOKEN: ${{ secrets.PLANQK_TOKEN }}
-          CONTEXT_ID: ${{ vars.CONTEXT_ID }}
+          CONTEXT_ID: ${{ secrets.CONTEXT_ID }}
 ```
